@@ -1,0 +1,87 @@
+import type { LifeEvent, Person, Place, Relationship, Story } from "@/src/models/family";
+
+export const places: Place[] = [
+  { id: "cork", name: "Cork", country: "Ireland", coordinates: [51.8985, -8.4756] },
+  { id: "liverpool", name: "Liverpool", country: "England", coordinates: [53.4084, -2.9916] },
+  { id: "london", name: "London", country: "England", coordinates: [51.5074, -0.1278] },
+  { id: "marseille", name: "Marseille", country: "France", coordinates: [43.2965, 5.3698] },
+  { id: "valletta", name: "Valletta", country: "Malta", coordinates: [35.8992, 14.5141] },
+  { id: "alexandria", name: "Alexandria", country: "Egypt", coordinates: [31.2001, 29.9187] },
+  { id: "montreal", name: "Montréal", country: "Canada", coordinates: [45.5019, -73.5674] },
+  { id: "new-york", name: "New York", country: "United States", coordinates: [40.7128, -74.006] },
+  { id: "lisbon", name: "Lisbon", country: "Portugal", coordinates: [38.7223, -9.1393] },
+  { id: "sydney", name: "Sydney", country: "Australia", coordinates: [-33.8688, 151.2093] },
+];
+
+export const people: Person[] = [
+  { id: "evelyn", givenName: "Evelyn", familyName: "Sullivan", birthDate: "1898-04-17", deathDate: "1981-11-02", generation: 1, summary: "A seamstress whose letters traced a life from Cork to the eastern Mediterranean.", accent: "#81513c" },
+  { id: "arthur", givenName: "Arthur", familyName: "Bell", birthDate: "1895-09-08", deathDate: "1968-02-12", generation: 1, summary: "A ship’s engineer with a fondness for field notes and pressed leaves.", accent: "#355f4d" },
+  { id: "celine", givenName: "Céline", familyName: "Moreau", birthDate: "1902-01-20", deathDate: "1990-06-14", generation: 1, summary: "A teacher from Marseille who kept the family recipe book.", accent: "#9b6a3d" },
+  { id: "robert", givenName: "Robert", familyName: "Vale", birthDate: "1900-12-03", deathDate: "1976-08-29", generation: 1, summary: "A railway clerk raised between Valletta and London.", accent: "#48685a" },
+  { id: "maeve", givenName: "Maeve", familyName: "Bell", birthDate: "1923-03-11", deathDate: "2004-07-07", generation: 2, summary: "A librarian who catalogued family correspondence by place and season.", accent: "#315d4a" },
+  { id: "julian", givenName: "Julian", familyName: "Vale", birthDate: "1926-10-09", deathDate: "2011-01-22", generation: 2, summary: "A photographer who met Maeve beside the docks in Liverpool.", accent: "#8b5b3e" },
+  { id: "anna", givenName: "Anna", familyName: "Vale", birthDate: "1951-08-16", generation: 3, summary: "An architect who carried the archive from London to Montréal.", accent: "#2f5949" },
+  { id: "peter", givenName: "Peter", familyName: "Mercer", birthDate: "1949-02-02", generation: 3, summary: "A teacher and oral historian with roots in New York.", accent: "#8f6546" },
+  { id: "clara", givenName: "Clara", familyName: "Vale", birthDate: "1956-05-30", generation: 3, summary: "A ceramicist who settled in Lisbon.", accent: "#527261" },
+  { id: "mara", givenName: "Mara", familyName: "Mercer", birthDate: "1983-12-12", generation: 4, summary: "A conservator digitising the family’s letters and photographs.", accent: "#2d5b49" },
+  { id: "theo", givenName: "Theo", familyName: "Mercer", birthDate: "1987-06-21", generation: 4, summary: "A food writer rebuilding recipes from half-remembered measures.", accent: "#966240" },
+  { id: "ines", givenName: "Inês", familyName: "Vale", birthDate: "1992-09-02", generation: 4, summary: "A documentary editor connecting stories across the family map.", accent: "#426b59" },
+];
+
+export const relationships: Relationship[] = [
+  { id: "ev-arth", type: "partner", personIds: ["evelyn", "arthur"], from: "1919" },
+  { id: "ce-rob", type: "partner", personIds: ["celine", "robert"], from: "1922" },
+  { id: "ev-maeve", type: "parent-child", parentId: "evelyn", childId: "maeve" },
+  { id: "arth-maeve", type: "parent-child", parentId: "arthur", childId: "maeve" },
+  { id: "ce-jul", type: "parent-child", parentId: "celine", childId: "julian" },
+  { id: "rob-jul", type: "parent-child", parentId: "robert", childId: "julian" },
+  { id: "mae-jul", type: "partner", personIds: ["maeve", "julian"], from: "1948" },
+  { id: "mae-anna", type: "parent-child", parentId: "maeve", childId: "anna" },
+  { id: "jul-anna", type: "parent-child", parentId: "julian", childId: "anna" },
+  { id: "mae-clara", type: "parent-child", parentId: "maeve", childId: "clara" },
+  { id: "jul-clara", type: "parent-child", parentId: "julian", childId: "clara" },
+  { id: "anna-peter", type: "partner", personIds: ["anna", "peter"], from: "1978" },
+  { id: "anna-mara", type: "parent-child", parentId: "anna", childId: "mara" },
+  { id: "peter-mara", type: "parent-child", parentId: "peter", childId: "mara" },
+  { id: "anna-theo", type: "parent-child", parentId: "anna", childId: "theo" },
+  { id: "peter-theo", type: "parent-child", parentId: "peter", childId: "theo" },
+  { id: "clara-ines", type: "parent-child", parentId: "clara", childId: "ines" },
+];
+
+export const lifeEvents: LifeEvent[] = [
+  { id: "e1", personId: "evelyn", placeId: "cork", date: "1898-04-17", kind: "born", note: "Born above her mother’s drapery shop." },
+  { id: "e2", personId: "evelyn", placeId: "liverpool", date: "1918-06-04", kind: "lived", note: "Worked as a seamstress near the docks." },
+  { id: "e3", personId: "evelyn", placeId: "valletta", date: "1920-09-18", kind: "settled", note: "Moved with Arthur after their marriage." },
+  { id: "e4", personId: "evelyn", placeId: "alexandria", date: "1937-03-12", kind: "lived", note: "Ran a small alterations room by the harbour." },
+  { id: "e5", personId: "evelyn", placeId: "london", date: "1981-11-02", kind: "died", note: "Returned to England in later life." },
+  { id: "a1", personId: "arthur", placeId: "liverpool", date: "1895-09-08", kind: "born", note: "Born near Toxteth docks." },
+  { id: "a2", personId: "arthur", placeId: "valletta", date: "1920-09-18", kind: "settled", note: "Stationed in the Grand Harbour." },
+  { id: "ce1", personId: "celine", placeId: "marseille", date: "1902-01-20", kind: "born", note: "Born near the old port." },
+  { id: "ce2", personId: "celine", placeId: "valletta", date: "1922-05-09", kind: "settled", note: "Moved after marrying Robert." },
+  { id: "r1", personId: "robert", placeId: "valletta", date: "1900-12-03", kind: "born", note: "Born inside the old city walls." },
+  { id: "r2", personId: "robert", placeId: "london", date: "1918-02-11", kind: "lived", note: "Trained as a railway clerk." },
+  { id: "r3", personId: "robert", placeId: "valletta", date: "1922-05-09", kind: "settled", note: "Returned to Malta with Céline." },
+  { id: "m1", personId: "maeve", placeId: "valletta", date: "1923-03-11", kind: "born", note: "Born in Floriana." },
+  { id: "m2", personId: "maeve", placeId: "liverpool", date: "1947-01-08", kind: "lived", note: "Joined the city library." },
+  { id: "j1", personId: "julian", placeId: "marseille", date: "1926-10-09", kind: "born", note: "Born near the old port." },
+  { id: "j2", personId: "julian", placeId: "liverpool", date: "1946-05-17", kind: "lived", note: "Photographed post-war dock life." },
+  { id: "an1", personId: "anna", placeId: "liverpool", date: "1951-08-16", kind: "born", note: "Born at the family home." },
+  { id: "an2", personId: "anna", placeId: "london", date: "1970-09-20", kind: "lived", note: "Studied architecture." },
+  { id: "an3", personId: "anna", placeId: "montreal", date: "1981-04-10", kind: "settled", note: "Opened a small design practice." },
+  { id: "p1", personId: "peter", placeId: "new-york", date: "1949-02-02", kind: "born", note: "Born in Queens." },
+  { id: "p2", personId: "peter", placeId: "montreal", date: "1975-08-30", kind: "settled", note: "Began teaching history." },
+  { id: "c1", personId: "clara", placeId: "liverpool", date: "1956-05-30", kind: "born", note: "Born by Sefton Park." },
+  { id: "c2", personId: "clara", placeId: "lisbon", date: "1984-02-14", kind: "settled", note: "Established a ceramics studio." },
+  { id: "ma1", personId: "mara", placeId: "montreal", date: "1983-12-12", kind: "born", note: "Born in Mile End." },
+  { id: "ma2", personId: "mara", placeId: "london", date: "2006-10-01", kind: "lived", note: "Trained in paper conservation." },
+  { id: "t1", personId: "theo", placeId: "montreal", date: "1987-06-21", kind: "born", note: "Born in Outremont." },
+  { id: "t2", personId: "theo", placeId: "sydney", date: "2015-04-03", kind: "settled", note: "Moved for work and stayed for the sea." },
+  { id: "i1", personId: "ines", placeId: "lisbon", date: "1992-09-02", kind: "born", note: "Born in Alfama." },
+];
+
+export const stories: Story[] = [
+  { id: "s1", title: "The blue harbour letters", type: "letter", date: "1937-08-05", excerpt: "Five thin airmail pages describe Alexandria at dusk and a dress cut from sea-coloured silk.", personIds: ["evelyn", "arthur"], placeIds: ["alexandria", "valletta"] },
+  { id: "s2", title: "Sunday bread with orange", type: "recipe", date: "1942-01-01", excerpt: "Céline’s pencilled recipe uses a teacup, a warm windowsill and the zest of two oranges.", personIds: ["celine", "julian"], placeIds: ["marseille"] },
+  { id: "s3", title: "At the Liverpool landing stage", type: "photograph", date: "1947-06-22", excerpt: "Maeve looks just beyond the camera; Julian’s note on the reverse says only, ‘the day the rain stopped.’", personIds: ["maeve", "julian"], placeIds: ["liverpool"] },
+  { id: "s4", title: "The archive in three suitcases", type: "memory", date: "1981-04-10", excerpt: "Anna remembers arriving in Montréal with drawings, letters and the green recipe book packed between winter coats.", personIds: ["anna", "mara"], placeIds: ["london", "montreal"] },
+];
